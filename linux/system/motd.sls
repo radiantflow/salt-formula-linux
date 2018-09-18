@@ -35,7 +35,7 @@ motd_{{ motd_index }}_{{ name }}:
     - source: salt://linux/files/motd.sh
     - template: jinja
     - mode: 755
-    - require:
+    - require_in:
       - file: /etc/update-motd.d
     - defaults:
         index: {{ motd_index }}
