@@ -11,7 +11,7 @@
 
   {%- if package.repo is defined or package.hold is defined or package.verify is defined %}
 linux_extra_package_{{ name }}:
-    {%- if package.version is defined %}
+    {%- if package.version is defined and package.version != 'installed' %}
       {%- if package.version == 'latest' %}
   pkg.latest:
       {%- elif package.version == 'purged' %}
